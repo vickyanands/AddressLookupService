@@ -2,8 +2,12 @@
 
 This service lookups following information for the address in NSW using NSW ARCGIS Rest services  
 -suburb name  
--location Cordinates (Longitude and Latidude)  
+-location Coordinates (Longitude and Latitude)  
 -State Electoral District Name
+
+This service is currently deployed and running on AWS Lambda, you can access using following url
+
+https://ynfvhoazmf.execute-api.ap-southeast-2.amazonaws.com/dev/address-lookup?address=16-20%20warialda%20street%20kogarah
 
 ## Table of Contents
 
@@ -17,7 +21,7 @@ This service lookups following information for the address in NSW using NSW ARCG
 
 ## About
 
-Address Lookup service is designed and developed to provide suburb name, state electora district name and location with includes GPS coordinates for the given address. It takes "Address" as query parameters to service url and give json response to the queried address containing
+Address Lookup service is designed and developed to provide suburb name, state electoral district name and location which includes GPS coordinates for the given address. It takes "Address" as query parameters to service url and give json response to the queried address containing
 
 Sample Request URL :  
 https://ynfvhoazmf.execute-api.ap-southeast-2.amazonaws.com/dev/address-lookup?address=16-20%20warialda%20street%20kogarah
@@ -44,9 +48,7 @@ This Service aggregate response from 3 services to get information for generatin
 
 ## Getting Started
 
-This service is deployed in AWS Lambda (Serverless) and can be build by running following commands
-
-Instructions for setting up and running your project. Include any prerequisites and installation steps.
+This service is deployed in AWS Lambda (Serverless) and can be build by running following following instructions
 
 ### Prerequisites
 
@@ -56,34 +58,30 @@ After cloning this repo in your file system run following steps
 2. Open project directory in VS-CODE or editor of your choice
 3. Create a Lambda function in AWS with name 'address-lookup-service'
 4. Configure to run this function on node version 16.
-5. Create a api gateway with any name.
+5. Create an api gateway with any name.
 6. Create a resource 'address-lookup' with a 'GET' method , enable CORS and integrate the created Lambda function as a proxy.
-7. Deploy your API to 'dev' stage. (create new dev stage while deployment is not existing).
-8. This should create a url like this which you can use to test your lambda fundtion. https://ynfvhoazmf.execute-api.ap-southeast-2.amazonaws.com/dev
+7. Deploy your API to the 'dev' stage. (create a new stage while deployment is not existing).
+8. This should create a url like this which you can use to test your lambda function. https://ynfvhoazmf.execute-api.ap-southeast-2.amazonaws.com/dev
 9. Complete url for your deployed application will look like. You can Use this to test your Lambda function in browser window
    https://ynfvhoazmf.execute-api.ap-southeast-2.amazonaws.com/dev/address-lookup
-10. (Optional)You can also create alias and then use the alias name with the lambda-function name as 'address-lookup-service:live' where live is alias name pointing to desired version or latest.
+10. (Optional)You can also create an alias and then use the alias name with the lambda-function name as 'address-lookup-service:live' where live is the alias name pointing to desired version or latest.
     ![Alt text](image.png)
-11. Install AWS CLI and Configure your AWS account in your local dev environment with command "aws configure" and set aws secret key and access keys as default environment. This will help in deployment of lambda function directly by running node command after code modifications.
+11. Install AWS CLI and Configure your AWS account in your local dev environment with command "aws configure" and set aws secret key and access keys as default environment. This will help in deployment of lambda functions directly by running node commands after code modifications.
 
-12. Install Lambda-build globally by running following command. It is required for building, packaging and uploading lambda function to AWS directly using node.  
+12. Install Lambda-build globally by running the following command. It is required for building, packaging and uploading lambda functions to AWS directly using node.  
     "npm i -g lambda-build"
 
 13. Install globally as well with command
     npm i esbuild
 
-List any software, libraries, or tools that users need to install before they can use your project.
-
 ### Installation
 
-1. Install 'lambda-build' tool globally by running following command. It is required for building, packaging and uploading lambda function to AWS directly using node.  
+1. Install 'lambda-build' tool globally by running the following command. It is required for building, packaging and uploading lambda functions to AWS directly using node.  
    "npm i -g lambda-build"
 
 2. run "npm install" to install all dependencies required for this service to run locally
 
 3. run "npm run deploy" to deploy this service to your AWS account already setup and configured in your system.
-
-Step-by-step instructions on how to install and configure your project. Use code snippets if necessary.
 
 ```bash
 # Clone the repository
@@ -113,7 +111,7 @@ npm run all-test
 # to test run service locally which can also be used for debugging and random testing
 npm run local
 
-# to test run units tests with code coverage report run the following command its is using nyc to run code coverage, overall 100% it will produce a coverage report under converage folder,
+# to test run units tests with code coverage report run the following command its is using nyc to run code coverage, overall 100% it will produce a converage report under converage folder,
 npm run test-with-html-coverage
 
 ```
