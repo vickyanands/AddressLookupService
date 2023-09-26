@@ -13,10 +13,7 @@ This service lookups following information for the address in NSW using NSW ARCG
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+  - [Debugging](#Debugging)
 
 ## About
 
@@ -118,7 +115,9 @@ npm run local
 
 ```
 
-### How To debug this AWS LAMBDA function locally using VSCode
+### Debugging
+
+How To debug this AWS LAMBDA function locally using VSCode
 
 1. Use VSCODE Extension Run and Debug
 2. Click on JavaScript Debug Terminal button it will create one terminal
