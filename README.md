@@ -113,6 +113,9 @@ npm run all-test
 # to test run service locally which can also be used for debugging and random testing
 npm run local
 
+# to test run units tests with code coverage report run the following command its is using nyc to run code coverage, overall 100% it will produce a coverage report under converage folder,
+npm run test-with-html-coverage
+
 ```
 
 ### Debugging

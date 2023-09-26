@@ -7,8 +7,9 @@
     "deploy": "lambda-build upload address-lookup-service -e src/index.ts -r ap-southeast-2",
     "local": "node -r esbuild-register run.ts",
     "e2e-test": "mocha --recursive 'test/E2E' --extension test.ts --exit --require esbuild-register --timeout 20000",
-    "unit-test": "mocha --recursive 'test/unit' --extension test.ts --exit --require esbuild-register --timeout 20000",
-    "all-test": "mocha --recursive 'test' --extension test.ts --exit --require esbuild-register --timeout 20000"
+    "unit-test": "nyc --reporter=text mocha --recursive 'test/unit' --extension test.ts --exit --require esbuild-register --timeout 20000",
+    "all-test": "nyc --reporter=text mocha --recursive 'test' --extension test.ts --exit --require esbuild-register --timeout 20000",
+    "test-with-html-coverage": "nyc --reporter=html mocha --recursive 'test/unit' --extension test.ts --exit --require esbuild-register --timeout 20000"
   },
   "author": "Vicky Anand",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "@types/sinon": "^10.0.16",
     "esbuild-register": "^3.5.0",
     "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
     "sinon": "^16.0.0"
   },
   "dependencies": {
