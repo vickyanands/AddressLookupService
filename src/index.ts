@@ -4,7 +4,14 @@ import AddressLookupService from "./service/AddressLookupService";
 import { createErrorResponseForInternalServerErrors, createErrorResponseForInvalidUserRequest } from "./util/common";
 import { internalServerErrorResponse } from "./util/constants";
 
-
+/**
+ * This is the main entry point for Lambda function /service with which will accept event from 
+ * APIGateway. This service accepts address as query string parameter. 
+ * as {event : {querystring:{address:string }}
+ *  
+ * @param event 
+ * @returns 
+ */
 export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> => {
     try {
         console.log("input Events:")

@@ -7,6 +7,9 @@ interface GPSCoordinatesIF {
     getGPSCoordinatesForAddress: any;
 }
 
+/**
+ * Functions is used to find GPS Coordinates using NSW_Geocoded_Addressing_Theme service.  
+ */
 const GpsCoordinate: GPSCoordinatesIF = {
 
     getGPSCoordinatesForAddress: async (address: string) => {
@@ -17,10 +20,14 @@ const GpsCoordinate: GPSCoordinatesIF = {
     }
 
 }
-
-export const createUrlForFindingCorrdinates = (address: string) => {
+/**
+ * Creates Url after adding addresss received as argument. 
+ * @param address 
+ * @returns 
+ */
+export const createUrlForFindingCorrdinates = (address: string): string => {
     const coordinatesUrl = new URL(initialUrlForGettingGpsCoordinates);
     coordinatesUrl.searchParams.set("where", "address='" + address.toUpperCase() + "'")
-    return coordinatesUrl;
+    return coordinatesUrl.toString();
 }
 export default GpsCoordinate;

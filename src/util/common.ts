@@ -22,8 +22,12 @@ export const createSuccessfullResponse = (output: Output): APIGatewayProxyStruct
         body: JSON.stringify(output),
     };
 }
-
-export let fetchDataFromNSWAdminService = (url: any) => {
+/**
+ * Fetches Data from external services using Axios library.
+ * @param url 
+ * @returns 
+ */
+export let fetchDataFromNSWAdminService = (url: string) => {
     console.log("url for searching data", url);
     return axios.get(url.toString());
 }
