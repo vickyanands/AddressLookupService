@@ -1,0 +1,28 @@
+{
+  "name": "address-lookup-service",
+  "version": "1.0.0",
+  "description": "This service takes address as an input to retrieve location, suburb name, and property ID information utilizing other services provided by NSW Government APIs ",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "lambda-build upload address-lookup-service -e src/index.ts -r ap-southeast-2",
+    "local": "node -r esbuild-register run.ts",
+    "e2e-test": "mocha --recursive 'test/E2E' --extension test.ts --exit --require esbuild-register --timeout 20000",
+    "unit-test": "mocha --recursive 'test/unit' --extension test.ts --exit --require esbuild-register --timeout 20000",
+    "all-test": "mocha --recursive 'test' --extension test.ts --exit --require esbuild-register --timeout 20000"
+  },
+  "author": "Vicky Anand",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.121",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.6.3",
+    "@types/sinon": "^10.0.16",
+    "esbuild-register": "^3.5.0",
+    "mocha": "^10.2.0",
+    "sinon": "^16.0.0"
+  },
+  "dependencies": {
+    "axios": "1.5.0",
+    "esbuild": "^0.19.3"
+  }
+}
